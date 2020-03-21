@@ -1,0 +1,18 @@
+<h1>Download Files</h1>
+{{log @model}}
+<div class="fileWrapper">
+  <div class="topRow">
+    <input type="checkbox" />
+    <h3>Selected</h3>
+    <h3>Download Selected</h3>
+  </div>
+  {{#each @model as |file|}}
+  <div class='rowWrapper'>
+    <input type="checkbox" />
+    <p>{{file.name}}</p>
+    <p>{{file.device}}</p>
+    <p>{{file.path}}</p>
+    <p>{{file.status}}</p>
+  </div>
+  {{/each}}
+</div>

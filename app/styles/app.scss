@@ -1,0 +1,33 @@
+$darkgrey: gainsboro;
+
+$border: 0.5px $darkgrey solid;
+$font: "Alegreya Sans", sans-serif;
+$fontsize: 15px;
+
+@mixin placement {
+  display: flex;
+  flex-direction: row;
+  border: $border;
+  padding: 0 20px;
+}
+
+h1 {
+  font-style: italic;
+}
+
+.fileWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+  @include placement();
+}
+
+.rowWrapper {
+  @include placement();
+}
+
+p {
+  margin: 0 20px;
+}
