@@ -3,8 +3,7 @@
 
 // export default class DownloadComponent extends Component {
 //   @action
-//   onChange(file) {
-//     set(file, "isChecked", !file.isChecked);
-//     console.log(file);
+//   onChange() {
+//     console.log("change");
 //   }
 // }
