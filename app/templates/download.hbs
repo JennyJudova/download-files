@@ -4,10 +4,10 @@
   <div class="topRow">
     <input type="checkbox" />
     <h3>{{selected-counter @model}}</h3>
-    <Counter @model={{@model}} />
+    <h3>{{this.counter}}</h3>
     <h3>Download Selected</h3>
   </div>
   {{#each @model as |file|}}
-  <File @file={{file}} />
+  <File @file={{file}} @model={{@model}} />
   {{/each}}
 </div>

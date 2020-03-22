@@ -1,5 +1,6 @@
 <div class='rowWrapper'>
-  <input type="checkbox" checked={{@file.isChecked}} onchange={{fn this.onChange @file}} />
+  <input type="checkbox" checked={{@file.isChecked}} onchange={{fn this.onChange @file @model}} />
+  <p>{{this.counter}}</p>
   <p>{{@file.name}}</p>
   <p>{{@file.device}}</p>
   <p>{{@file.path}}</p>
