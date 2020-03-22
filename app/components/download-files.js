@@ -6,12 +6,36 @@ export default class DownloadFilesComponent extends Component {
   @tracked
   counter = 0;
 
+  @tracked
+  allChecked = false;
+
   @action
   onChange(file, model) {
     set(file, "isChecked", !file.isChecked);
-    const files = model;
-    const filesTrue = files.filter(file => file.isChecked === true);
+    const filesTrue = model.filter(file => file.isChecked === true);
     this.counter = filesTrue.length;
-    console.log(this.counter, model, file);
+    let checkboxAll = document.getElementById("allCheckbox");
+    if (this.counter === 0) {
+      checkboxAll.indeterminate = false;
+      this.allChecked = false;
+    } else if (this.counter === model.length) {
+      checkboxAll.indeterminate = false;
+      this.allChecked = true;
+    } else {
+      checkboxAll.indeterminate = true;
+      this.allChecked = false;
+    }
+  }
+
+  @action
+  handleAllCheck(model) {
+    this.allChecked = !this.allChecked;
+    if (this.allChecked === false) {
+      this.counter = 0;
+      model.map(file => set(file, "isChecked", false));
+    } else if (this.allChecked === true) {
+      this.counter = model.length;
+      model.map(file => set(file, "isChecked", true));
+    }
   }
 }

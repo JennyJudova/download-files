@@ -1,23 +1,4 @@
 <h1>Download Files</h1>
-{{log @model}}
 <div class="fileWrapper">
   <DownloadFiles @model={{@model}} />
-
-  {{!-- {{#each @model as |file|}} --}}
-  {{!-- <File @file={{file}} @model={{@model}} @counter={{this.counter}} /> --}}
-  {{!-- <div class='rowWrapper'>
-    <input type="checkbox" checked={{file.isChecked}} {{on 'change' this.onChange}} />
-    <p>{{this.counter}}</p>
-    <p>{{file.name}}</p>
-    <p>{{file.device}}</p>
-    <p>{{file.path}}</p>
-    <p>{{file.status}}</p>
-  </div> --}}
-  {{!-- {{/each}} --}}
 </div>
-
-
-{{!-- <Message @message={{m}} @delete={{fn channelApi.deleteMessage m.id}} /> --}}
-{{!-- <input type="checkbox" checked={{@file.isChecked}} onchange={{fn this.onChange @file @model}} /> --}}
-{{!-- <input id="message-input" class="channel-footer__message-input w-full px-4" placeholder="Message here"
-      value={{this.body}} {{on 'input' this.updateMessageBody}} type="text"> --}}
