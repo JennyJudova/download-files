@@ -1,7 +1,13 @@
-<div class="topRow">
+<div class="topRow1">
   <input id="allCheckbox" type="checkbox" checked={{this.allChecked}} onchange={{fn this.handleAllCheck @model}} />
-  <h3>Counter - {{this.counter}}</h3>
-  <h3>Download Selected</h3>
+  <h2>{{selected-counter this.counter}}</h2>
+  <h2>Download Selected</h2>
+</div>
+<div class="topRow2">
+  <h3>Name</h3>
+  <h3>Device</h3>
+  <h3>Path</h3>
+  <h3>Status</h3>
 </div>
 {{#each @model as |file|}}
 <div class='rowWrapper'>
@@ -9,6 +15,7 @@
   <p>{{file.name}}</p>
   <p>{{file.device}}</p>
   <p>{{file.path}}</p>
+  <p class={{file.status}} />
   <p>{{file.status}}</p>
 </div>
 {{/each}}
