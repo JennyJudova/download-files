@@ -38,4 +38,9 @@ export default class DownloadFilesComponent extends Component {
       model.map(file => set(file, "isChecked", true));
     }
   }
+
+  @action
+  onDownload(model) {
+    console.log("download");
+  }
 }

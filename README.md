@@ -72,7 +72,7 @@ done · Clicking the select-all checkbox should select all items if none or some
 
 done · Clicking the select-all checkbox should de-select all items if all are currently selected.
 
-· Status should be correctly formatted
+done · Status should be correctly formatted
 
 · Clicking "Download Selected" when some or all items are displayed should generate an alert box with the path and device of all selected files.
 

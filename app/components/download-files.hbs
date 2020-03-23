@@ -1,7 +1,10 @@
 <div class="topRow1">
   <input id="allCheckbox" type="checkbox" checked={{this.allChecked}} onchange={{fn this.handleAllCheck @model}} />
   <h2>{{selected-counter this.counter}}</h2>
-  <h2>Download Selected</h2>
+  <button type="button" onclick={{fn this.onDownload @model}}>
+    <img src="http://pixsector.com/cache/5d353540/av3544fca9fdc10112f68.png" alt="download arrow" />
+    Download Selected
+  </button>
 </div>
 <div class="topRow2">
   <h3>Name</h3>
@@ -9,13 +12,17 @@
   <h3>Path</h3>
   <h3>Status</h3>
 </div>
-{{#each @model as |file|}}
-<div class='rowWrapper'>
-  <input id={{file.name}} type="checkbox" checked={{file.isChecked}} onchange={{fn this.onChange file @model}} />
-  <p>{{file.name}}</p>
-  <p>{{file.device}}</p>
-  <p>{{file.path}}</p>
-  <p class={{file.status}} />
-  <p>{{file.status}}</p>
-</div>
-{{/each}}
+<ul>
+  {{#each @model as |file|}}
+  <li class='rowWrapper'>
+    <input id={{file.name}} type="checkbox" checked={{file.isChecked}} onchange={{fn this.onChange file @model}} />
+    <p>{{file.name}}</p>
+    <p>{{file.device}}</p>
+    <p>{{file.path}}</p>
+    <div>
+      <p class={{file.status}} />
+      <p>{{file.status}}</p>
+    </div>
+  </li>
+  {{/each}}
+</ul>

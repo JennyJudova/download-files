@@ -1,9 +1,11 @@
 $darkgrey: gainsboro;
+$lighgrey: whitesmoke;
 $green: yellowgreen;
+$red: crimson;
 
 $border: 0.5px $darkgrey solid;
 $font: "Alegreya Sans", sans-serif;
-$fontsize: 15px;
+$fontsize: 13px;
 
 @mixin placement {
   display: flex;
@@ -12,29 +14,54 @@ $fontsize: 15px;
   padding: 0 20px;
 }
 
+@mixin downloadwrapperfont {
+  font-size: 25px;
+  font-weight: 400;
+  margin: 15px 25px 15px 15px;
+  font-family: $font;
+}
+
+@mixin downloadheadingsfont {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 15px 10px;
+  font-family: $font;
+}
+
 h1 {
   font-style: italic;
 }
 
 .fileWrapper {
+  border: $border;
+  border-radius: 1px;
   display: flex;
   flex-direction: column;
+  box-shadow: 5px 5px 5px $darkgrey;
+  width: auto;
 }
 
-.topRow1 {
-  @include placement();
-}
-
-.topRow2 {
-  @include placement();
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 .rowWrapper {
   @include placement();
+  height: 30px;
+  width: auto;
+  p {
+    width: 200px;
+    display: flex;
+    margin: 0;
+  }
+  div {
+    padding: 0 20px;
+  }
 }
 
-p {
-  margin: 0 20px;
+.rowWrapper:hover {
+  background-color: $lighgrey;
 }
 
 .available {
@@ -44,4 +71,38 @@ p {
   border-radius: 50%;
   display: inline-block;
   margin: 15px 0 15px 10px;
+}
+
+.topRow1 {
+  align-items: center;
+  @include placement();
+  h2 {
+    @include downloadwrapperfont();
+  }
+  button {
+    border: none;
+    padding: 0;
+    height: auto;
+    @include downloadwrapperfont();
+  }
+  img {
+    height: 40px;
+  }
+}
+
+.topRow2 {
+  padding: 0 60px;
+  @include placement();
+  .path {
+    width: 520px;
+  }
+  h3 {
+    @include downloadheadingsfont();
+    width: 150px;
+  }
+}
+
+input {
+  margin-right: 20px;
+  align-self: center;
 }
