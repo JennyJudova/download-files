@@ -128,3 +128,29 @@ input {
   margin-right: 20px;
   align-self: center;
 }
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background: $lighgrey;
+  border-radius: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  .text {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 33%;
+    button {
+      padding: 15px;
+      font-size: $fontsize;
+      background-color: white;
+      text-transform: capitalize;
+      border-radius: 1px;
+    }
+  }
+}

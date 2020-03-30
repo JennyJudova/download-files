@@ -9,6 +9,15 @@ export default class DownloadFilesComponent extends Component {
   @tracked
   allChecked = false;
 
+  @tracked
+  modal = false;
+
+  @tracked
+  chooseFile = false;
+
+  @tracked
+  canDownload;
+
   @action
   onChange(file, model) {
     set(file, "isChecked", !file.isChecked);
@@ -41,6 +50,24 @@ export default class DownloadFilesComponent extends Component {
 
   @action
   onDownload(model) {
-    console.log("download");
+    this.modal = true;
+    const download = model.filter(file => file.isChecked === true);
+    if (download.length === 0) {
+      this.chooseFile = true;
+    } else {
+      this.canDownload = download.filter(file => file.status === "available");
+      model.map(file => {
+        if (file.status === "scheduled" && file.isChecked === true) {
+          set(file, "isChecked", false);
+        }
+        this.counter = this.canDownload.length;
+      });
+    }
+  }
+
+  @action
+  closeModal() {
+    this.chooseFile = false;
+    this.modal = false;
   }
 }

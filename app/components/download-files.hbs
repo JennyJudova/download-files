@@ -24,3 +24,26 @@
   </li>
   {{/each}}
 </ul>
+
+{{#if this.modal}}
+<div class="modal">
+  <div class='text'>
+
+    <h3>Files selected to download</h3>
+
+    {{#if this.chooseFile}}
+    <p>Choose files to download</p>
+    {{/if}}
+
+    {{#each this.canDownload as |download|}}
+    <p> Device {{download.device}} - is ready for download.</p>
+    {{/each}}
+
+    <i>You can only download 'available' files.</i>
+    <br />
+    <button type="button" onclick={{fn this.closeModal}}>
+      close alert
+    </button>
+  </div>
+</div>
+{{/if}}
